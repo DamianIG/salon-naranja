@@ -1,0 +1,502 @@
+/* ==========================================
+   RESETEO Y ESTILOS GENERALES
+   Eliminamos márgenes por defecto para controlar el diseño.
+=========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #f9f9f9;
+}
+
+/* Envoltorio genérico para centrar y limitar el ancho del contenido */
+.contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* ==========================================
+   1. HEADER Y NAVBAR
+=========================================== */
+.header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+/* Logo */
+.logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+.logo a span {
+    color: #ff6f00; /* Color naranja distintivo */
+}
+
+/* Navegación */
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.activo {
+    color: #ff6f00;
+}
+
+
+/* ==========================================
+   2. HERO SECTION
+=========================================== */
+.hero {
+    /* Color de fondo fallback de tono naranja cálido */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), #e65100;
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 20px;
+}
+
+.hero-contenido h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero-contenido p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+/* Botón de llamada a la acción (CTA) */
+.btn {
+    display: inline-block;
+    background-color: #ff6f00;
+    color: #ffffff;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e65100;
+}
+
+
+/* ==========================================
+   3. SECCIONES
+=========================================== */
+.seccion {
+    padding: 60px 20px;
+}
+
+.titulo-seccion {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #222;
+}
+
+/* Grilla de Tarjetas para Servicios */
+.servicios-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Permite adaptarse a pantallas pequeñas */
+}
+
+.tarjeta {
+    flex: 1 1 300px; /* Ancho flexible mínimo de 300px */
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border-top: 4px solid #ff6f00;
+}
+
+.tarjeta h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Sección Destacada */
+.destacado {
+    background-color: #fff3e0; /* Naranja muy suave */
+    text-align: center;
+}
+
+
+/* ==========================================
+   4. FOOTER
+=========================================== */
+.footer {
+    background-color: #222222;
+    color: #ffffff;
+    padding-top: 40px;
+}
+
+.footer-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 30px;
+}
+
+.footer-info h3 {
+    color: #ff6f00;
+    margin-bottom: 5px;
+}
+
+.footer-copy {
+    background-color: #111111;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+    color: #888888;
+}
+
+/* ==========================================
+   GALERÍA: PASO 1 - EL CONTENEDOR PADRE
+   Crea la cuadrícula donde se ubican las fotos.
+=========================================== */
+.galeria-grid {
+    display: grid;
+    /* Crea columnas automáticas de mínimo 260px que se adaptan solas */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px; /* Espacio entre cada foto */
+}
+
+
+/* ==========================================
+   GALERÍA: PASO 2 - LA TARJETA INDIVIDUAL
+   Es la caja que envuelve a cada imagen y su texto.
+=========================================== */
+.galeria-item {
+    position: relative; /* Necesario para posicionar la capa de texto adentro */
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden;   /* Corta la imagen si sobresale de las esquinas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 1 / 1; /* Mantiene la caja siempre cuadrada */
+}
+
+
+/* ==========================================
+   GALERÍA: PASO 3 - LA IMAGEN
+   Controla cómo se muestra la foto dentro de la tarjeta.
+=========================================== */
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Evita que la imagen se estire o deforme */
+    display: block;
+    transition: transform 0.4s ease; /* Transición suave para el zoom */
+}
+
+
+/* ==========================================
+   GALERÍA: PASO 4 - TARJETA DESTACADA
+   Hace que una foto ocupe el doble de ancho en pantallas grandes.
+=========================================== */
+@media (min-width: 768px) {
+    .destacado-grid {
+        grid-column: span 2; /* Ocupa 2 columnas de la cuadrícula */
+    }
+}
+
+
+/* ==========================================
+   GALERÍA: PASO 5 - LA CAPA DE TEXTO (OVERLAY)
+   Se ubica en la parte inferior de la tarjeta, oculta al inicio.
+=========================================== */
+.galeria-capa {
+    position: absolute; /* Se coloca encima de la imagen */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85)); /* Fondo oscuro degradado */
+    color: #ffffff;
+    padding: 20px 15px 15px 15px;
+    
+    /* Estado inicial: Invisible */
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Transición suave para aparecer */
+}
+
+/* Estilos para el título dentro de la capa */
+.galeria-capa h3 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+    color: #ffb74d; /* Naranja claro */
+}
+
+/* Estilos para la descripción dentro de la capa */
+.galeria-capa p {
+    font-size: 0.85rem;
+    color: #e0e0e0;
+}
+
+
+/* ==========================================
+   GALERÍA: PASO 6 - INTERACCIÓN (HOVER)
+   Lo que sucede cuando el usuario pasa el cursor por la tarjeta.
+=========================================== */
+
+/* 1. Hace zoom ligero a la foto */
+.galeria-item:hover img {
+    transform: scale(1.08);
+}
+
+/* 2. Muestra la capa de texto */
+.galeria-item:hover .galeria-capa {
+    opacity: 1;
+}
+
+/* ==========================================
+   MODAL DE GALERÍA
+=========================================== */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Clase que activa JavaScript para mostrar el modal */
+.modal.activo {
+    display: flex;
+}
+
+.modal-contenido {
+    max-width: 85%;
+    max-height: 75vh;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+}
+
+.modal-caption {
+    color: #ffffff;
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-cerrar:hover {
+    color: #ff6f00;
+}
+
+/* =================================
+        Ajuste de CARROUSEL
+==================================== */
+
+/* Contenedor central del modal */
+.modal-contenido-wrapper {
+    text-align: center;
+    max-width: 80%;
+}
+
+/* Transición suave para dar sensación de zoom al cargar la foto */
+.modal-contenido {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.6);
+    transition: transform 0.3s ease;
+}
+
+/* Flechas de navegación del Carrusel */
+.modal-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    border: none;
+    font-size: 2.2rem;
+    padding: 10px 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    user-select: none;
+    z-index: 1005;
+}
+
+.modal-flecha:hover {
+    background-color: #ff6f00;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.flecha-izq { left: 20px; }
+.flecha-der { right: 20px; }
+
+@media (max-width: 600px) {
+    .flecha-izq { left: 5px; }
+    .flecha-der { right: 5px; }
+    .modal-flecha { padding: 8px 12px; font-size: 1.5rem; }
+}
+   
+/* ==========================================
+   SECCIÓN CONTACTO
+=========================================== */
+.subtitulo-seccion {
+    text-align: center;
+    color: #666;
+    margin-top: -30px;
+    margin-bottom: 40px;
+}
+
+/* Grilla principal de Contacto (2 Columnas) */
+.contacto-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.contacto-info,
+.contacto-formulario {
+    flex: 1 1 320px; /* Se adaptan en celulares apilándose uno debajo de otro */
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.contacto-info h2,
+.contacto-formulario h2 {
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 2px solid #ff6f00;
+    padding-bottom: 8px;
+}
+
+/* Items de Información */
+.item-contacto {
+    margin-bottom: 20px;
+}
+
+.item-contacto span {
+    display: block;
+    font-weight: bold;
+    color: #ff6f00;
+    margin-bottom: 4px;
+}
+
+.item-contacto a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.item-contacto a:hover {
+    color: #ff6f00;
+}
+
+/* Botón especial para WhatsApp */
+.btn-wa {
+    display: inline-block;
+    background-color: #25D366;
+    color: white !important;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Formulario */
+.formulario .campo {
+    margin-bottom: 15px;
+}
+
+.formulario label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+    outline: none;
+    border-color: #ff6f00;
+}
+
+.btn-enviar {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Estilos para el mapa iFrame */
+.mapa-contenedor iframe {
+    width: 100%;
+    height: 220px;
+    border: 0;
+    border-radius: 8px;
+    margin-top: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+

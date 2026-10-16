@@ -1,0 +1,16 @@
+
+/* En Salón Naranja tenemos clases personalizadas como:*/
+
+.contenedor
+.header
+.navbar
+.btn
+.tarjeta
+.servicios-grid
+
+.servicios-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+

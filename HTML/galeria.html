@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - Salón Naranja</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+
+    <!-- ======================================================
+          HEADER Y NAVBAR - copia esta estructura de index.html
+    ======================================================= -->
+    <header class="header">
+        <div class="contenedor header-contenido">
+            <div class="logo">
+                <a href="../index.html">Salón <span>Naranja</span></a>
+            </div>
+
+            <nav class="navbar">
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../HTML/servicios.html">Servicios</a></li>
+                    <li><a href="../HTML/galeria.html" class="activo">Galería</a></li>
+                    <li><a href="../HTML/contactos.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Encabezado de la página -->
+    <section class="banner-pagina">
+        <div class="contenedor">
+            <h1>Galería de Fotos</h1>
+            <p>Conoce nuestras instalaciones y los momentos especiales celebrados en Salón Naranja.</p>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECCIÓN PRINCIPAL: GALERÍA CON IMÁGENES LOCALES
+    =========================================== -->
+    <main class="seccion contenedor">
+        
+        <div class="galeria-grid">
+
+            <!-- 
+                RUTAS RELATIVAS:
+                El atributo src="img/nombre-archivo.jpg" le indica al navegador 
+                que busque dentro de la carpeta "img" situada al mismo nivel que este HTML.
+            -->
+
+            <!-- Foto 1: Destacada (Salón Principal) -->
+            <article class="galeria-item">
+                <img src="../IMG/salon-principal.png" alt="Salón Principal Decorado">
+                <div class="galeria-capa">
+                    <h3>Salón Principal</h3>
+                    <p>Capacidad para 150 invitados con pista iluminada</p>
+                </div>
+            </article>
+
+            <!-- Foto 2: Mesa de Dulces -->
+            <article class="galeria-item">
+                <img src="../IMG/mesa-dulces.png" alt="Mesa de Dulces y Torta">
+                <div class="galeria-capa">
+                    <h3>Mesa de Dulces</h3>
+                    <p>Ambientación temática para cumpleaños</p>
+                </div>
+            </article>
+
+            <!-- Foto 3: Área Infantil -->
+            <article class="galeria-item">
+                <img src="../IMG/area-infantil.png" alt="Zona de Juegos Infantiles">
+                <div class="galeria-capa">
+                    <h3>Área Infantil</h3>
+                    <p>Juegos supervisados y seguros</p>
+                </div>
+            </article>
+
+            <!-- Foto 4: Jardín Exterior -->
+            <article class="galeria-item">
+                <img src="../IMG/jardin.png" alt="Jardín y Luces">
+                <div class="galeria-capa">
+                    <h3>Jardín Exterior</h3>
+                    <p>Ideal para fotos de bienvenida al atardecer</p>
+                </div>
+            </article>
+
+            <!-- Foto 5: Catering -->
+            <article class="galeria-item">
+                <img src="../IMG/catering.png" alt="Platos de Catering">
+                <div class="galeria-capa">
+                    <h3>Servicio de Catering</h3>
+                    <p>Presentación impecable en cada plato</p>
+                </div>
+            </article>
+
+            <!-- Foto 6: Pista y DJ -->
+            <article class="galeria-item">
+                <img src="../IMG/pista-dj.png" alt="Cabina de DJ e Iluminación">
+                <div class="galeria-capa">
+                    <h3>Pista y DJ</h3>
+                    <p>Sonido envolvente e iluminación robotizada</p>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- ============================================
+         FOOTER - copia esta estructura de index.html
+    ============================================= -->
+    <footer class="footer">
+        <div class="contenedor footer-contenido">
+            <div class="footer-info">
+                <h3>Salón Naranja</h3>
+                <p>Creando recuerdos desde 2015.</p>
+            </div>
+            
+            <div class="footer-contacto">
+                <p>📍 Av. Principal #1234</p>
+                <p>📞 +54 370 400-0000</p>
+            </div>
+        </div>
+
+        <div class="footer-copy">
+            <p>&copy; 2026 Salón Naranja. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL / VISOR DE IMÁGENES -->
+    <div id="modal" class="modal">
+        <span id="modal-cerrar" class="modal-cerrar">&times;</span>
+        <img id="modal-imagen" class="modal-contenido" src="" alt="Imagen ampliada">
+        <p id="modal-titulo" class="modal-caption"></p>
+    </div>
+
+    <!-- MODAL CON CARRUSEL DE NAVEGACIÓN -->
+<div id="modal" class="modal">
+    <span id="modal-cerrar" class="modal-cerrar">&times;</span>
+    
+    <!-- Botón Flecha Izquierda -->
+    <button id="btn-anterior" class="modal-flecha flecha-izq" aria-label="Anterior">&#10094;</button>
+    
+    <div class="modal-contenido-wrapper">
+        <img id="modal-imagen" class="modal-contenido" src="" alt="Imagen ampliada">
+        <p id="modal-titulo" class="modal-caption"></p>
+    </div>
+
+    <!-- Botón Flecha Derecha -->
+    <button id="btn-siguiente" class="modal-flecha flecha-der" aria-label="Siguiente">&#10095;</button>
+</div>
+
+    <!-- Script exclusivo para la lógica de la Galería -->
+    <script src="../js/modal.js"></script>
+
+</body>
+</html>
